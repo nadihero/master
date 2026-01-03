@@ -99,64 +99,65 @@ export default function Home() {
   }
 
 const motivationalQuotes = [
-    "Setiap hari adalah kesempatan baru.",
-    "Kecil konsisten lebih baik dari besar sesekali.",
-    "Sukses adalah hasil dari kebiasaan kecil.",
-    "Investasi terbaik adalah investasi pada diri sendiri.",
-    "Disiplin hari ini menentukan masa depanmu.",
-    "Setiap rupiah yang dihemat adalah langkah menuju kebebasan.",
-    "Kontrol pengeluaran, kontrol hidupmu.",
-    "Hari ini adalah hadiah, itulah mengapa disebut present.",
-    "Keuangan yang sehat adalah fondasi kehidupan yang bahagia.",
-    "Menabung bukan tentang mengurangi, tapi tentang menambah masa depan.",
-    "Setiap keputusan finansianya adalah investasi pada dirimu.",
-    "Konsistensi adalah kunci kebebasan finansial.",
-    "Hemat hari ini, nikmati besok.",
-    "Uang adalah alat, bukan tujuan akhir.",
-    "Kontrol uangmu, jangan biarkan uang mengontrolmu.",
-    "Setiap pengeluaran adalah pilihan, buatlah yang bijak.",
-    "Kebiasaan kecil menghasilkan hasil besar.",
-    "Financial freedom dimulai dari mindset yang benar.",
-    "Investasi waktu sekarang, nikmati hasilnya nanti.",
-    "Anggaran adalah rencana, bukan batasan.",
-    "Setiap sen yang dihitung adalah sen yang dihargai.",
-    "Kesuksesan finansial adalah maraton, bukan sprint.",
-    "Prioritaskan kebutuhan, bukan keinginan.",
-    "Hari ini adalah kesempatan untuk menjadi lebih baik.",
-    "Disiplin finansial adalah bentuk cinta pada masa depan.",
-    "Setiap catatan pengeluaran adalah langkah kesadaran.",
-    "Uang tidak bisa membeli kebahagiaan, tapi mengelolanya bisa.",
-    "Kontrol emosi, kontrol dompet.",
-    "Investasi pengetahuan adalah investasi terbaik.",
-    "Setiap hari adalah kesempatan untuk belajar.",
-    "Kebebasan finansial dimulai dari pengendalian diri.",
-    "Anggaran adalah peta menuju tujuan finansial.",
-    "Setiap penghematan adalah kemenangan kecil.",
-    "Konsistensi mengalahkan intensitas.",
-    "Pikirkan panjang, bertindak sekarang.",
-    "Uang adalah energi, arahkan dengan bijak.",
-    "Setiap keputusan kecil membentuk masa depan besar.",
-    "Kontrol hari ini, nikmati besok.",
-    "Investasi pada diri adalah yang paling menguntungkan.",
-    "Setiap rupiah memiliki tujuan.",
-    "Kebiasaan finansial yang baik menciptakan kehidupan yang baik.",
-    "Sadari setiap pengeluaran, sadari setiap pilihan.",
-    "Financial peace dimulai dari clarity.",
-    "Setiap hari adalah kesempatan untuk memperbaiki.",
-    "Kontrol pengeluaran, bebaskan masa depan.",
-    "Investasi terbaik adalah pada kebiasaan baik.",
-    "Setiap keputusan finansial mencerminkan prioritasmu.",
-    "Anggaran adalah alat untuk mencapai impian.",
-    "Konsistensi dalam menabung membentuk kekayaan.",
-    "Setiap hari adalah langkah menuju tujuan.",
-    "Kontrol keuangan, kontrol kehidupan.",
-    "Investasi waktu dan uang dengan bijak.",
-    "Setiap penghematan adalah investasi pada masa depan."
+    { text: "Setiap hari adalah kesempatan baru.", author: "Anonim" },
+    { text: "Kecil konsisten lebih baik dari besar sesekali.", author: "James Clear" },
+    { text: "Sukses adalah hasil dari kebiasaan kecil.", author: "Darren Hardy" },
+    { text: "Investasi terbaik adalah investasi pada diri sendiri.", author: "Zig Ziglar" },
+    { text: "Disiplin hari ini menentukan masa depanmu.", author: "Anonim" },
+    { text: "Setiap rupiah yang dihemat adalah langkah menuju kebebasan.", author: "Anonim" },
+    { text: "Kontrol pengeluaran, kontrol hidupmu.", author: "Anonim" },
+    { text: "Hari ini adalah hadiah, itulah mengapa disebut present.", author: "Eleanor Roosevelt" },
+    { text: "Keuangan yang sehat adalah fondasi kehidupan yang bahagia.", author: "Anonim" },
+    { text: "Menabung bukan tentang mengurangi, tapi tentang menambah masa depan.", author: "Anonim" },
+    { text: "Setiap keputusan finansianya adalah investasi pada dirimu.", author: "Anonim" },
+    { text: "Konsistensi adalah kunci kebebasan finansial.", author: "Anonim" },
+    { text: "Hemat hari ini, nikmati besok.", author: "Anonim" },
+    { text: "Uang adalah alat, bukan tujuan akhir.", author: "Tony Robbins" },
+    { text: "Kontrol uangmu, jangan biarkan uang mengontrolmu.", author: "Anonim" },
+    { text: "Setiap pengeluaran adalah pilihan, buatlah yang bijak.", author: "Anonim" },
+    { text: "Kebiasaan kecil menghasilkan hasil besar.", author: "Stephen Covey" },
+    { text: "Financial freedom dimulai dari mindset yang benar.", author: "Robert Kiyosaki" },
+    { text: "Investasi waktu sekarang, nikmati hasilnya nanti.", author: "Anonim" },
+    { text: "Anggaran adalah rencana, bukan batasan.", author: "Anonim" },
+    { text: "Setiap sen yang dihitung adalah sen yang dihargai.", author: "Anonim" },
+    { text: "Kesuksesan finansial adalah maraton, bukan sprint.", author: "Anonim" },
+    { text: "Prioritaskan kebutuhan, bukan keinginan.", author: "Anonim" },
+    { text: "Hari ini adalah kesempatan untuk menjadi lebih baik.", author: "Anonim" },
+    { text: "Disiplin finansial adalah bentuk cinta pada masa depan.", author: "Anonim" },
+    { text: "Setiap catatan pengeluaran adalah langkah kesadaran.", author: "Anonim" },
+    { text: "Uang tidak bisa membeli kebahagiaan, tapi mengelolanya bisa.", author: "Anonim" },
+    { text: "Kontrol emosi, kontrol dompet.", author: "Anonim" },
+    { text: "Investasi pengetahuan adalah investasi terbaik.", author: "Benjamin Franklin" },
+    { text: "Setiap hari adalah kesempatan untuk belajar.", author: "Anonim" },
+    { text: "Kebebasan finansial dimulai dari pengendalian diri.", author: "Anonim" },
+    { text: "Anggaran adalah peta menuju tujuan finansial.", author: "Anonim" },
+    { text: "Setiap penghematan adalah kemenangan kecil.", author: "Anonim" },
+    { text: "Konsistensi mengalahkan intensitas.", author: "Anonim" },
+    { text: "Pikirkan panjang, bertindak sekarang.", author: "Anonim" },
+    { text: "Uang adalah energi, arahkan dengan bijak.", author: "Anonim" },
+    { text: "Setiap keputusan kecil membentuk masa depan besar.", author: "Anonim" },
+    { text: "Kontrol hari ini, nikmati besok.", author: "Anonim" },
+    { text: "Investasi pada diri adalah yang paling menguntungkan.", author: "Anonim" },
+    { text: "Setiap rupiah memiliki tujuan.", author: "Anonim" },
+    { text: "Kebiasaan finansial yang baik menciptakan kehidupan yang baik.", author: "Anonim" },
+    { text: "Sadari setiap pengeluaran, sadari setiap pilihan.", author: "Anonim" },
+    { text: "Financial peace dimulai dari clarity.", author: "Dave Ramsey" },
+    { text: "Setiap hari adalah kesempatan untuk memperbaiki.", author: "Anonim" },
+    { text: "Kontrol pengeluaran, bebaskan masa depan.", author: "Anonim" },
+    { text: "Investasi terbaik adalah pada kebiasaan baik.", author: "Anonim" },
+    { text: "Setiap keputusan finansial mencerminkan prioritasmu.", author: "Anonim" },
+    { text: "Anggaran adalah alat untuk mencapai impian.", author: "Anonim" },
+    { text: "Konsistensi dalam menabung membentuk kekayaan.", author: "Anonim" },
+    { text: "Setiap hari adalah langkah menuju tujuan.", author: "Anonim" },
+    { text: "Kontrol keuangan, kontrol kehidupan.", author: "Anonim" },
+    { text: "Investasi waktu dan uang dengan bijak.", author: "Anonim" },
+    { text: "Setiap penghematan adalah investasi pada masa depan.", author: "Anonim" }
   ]
 
   // Get random quote
   const getRandomQuote = () => {
-    return motivationalQuotes[Math.floor(Math.random() * motivationalQuotes.length)]
+    const quote = motivationalQuotes[Math.floor(Math.random() * motivationalQuotes.length)]
+    return `"${quote.text}"\n- ${quote.author}`
   }
 
   // Set random quote after hydration
@@ -193,7 +194,7 @@ const motivationalQuotes = [
       {/* Header */}
       <div className="bg-gradient-to-r from-emerald-600 to-green-600 text-white p-6 rounded-b-3xl shadow-lg">
         <h1 className="text-lg font-semibold mb-1">{getGreeting()}, Asdar 👋</h1>
-        <p className="text-white/90 text-sm italic">{randomQuote || 'Loading...'}</p>
+        <p className="text-white/90 text-sm italic whitespace-pre-line">{randomQuote}</p>
         
         {/* Summary Cards */}
         <div className="grid grid-cols-2 gap-4">
