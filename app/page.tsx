@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Plus, Calculator, Calendar, TrendingUp, Fuel, Utensils, Coffee } from 'lucide-react'
+import { Plus, Calculator, Calendar, TrendingUp, Fuel, Utensils, Coffee, X, Trash2 } from 'lucide-react'
 import { format, startOfWeek, endOfWeek, isWithinInterval, parseISO } from 'date-fns'
 
 interface Expense {
@@ -23,6 +23,7 @@ export default function Home() {
   const [expenses, setExpenses] = useState<Expense[]>([])
   const [showAddForm, setShowAddForm] = useState(false)
   const [randomQuote, setRandomQuote] = useState('')
+  const [deleteConfirm, setDeleteConfirm] = useState<string | null>(null)
   const [newExpense, setNewExpense] = useState({
     category: 'Makan',
     amount: ''
@@ -64,7 +65,18 @@ export default function Home() {
   }
 
   const deleteExpense = (id: string) => {
-    setExpenses(expenses.filter(exp => exp.id !== id))
+    setDeleteConfirm(id)
+  }
+
+  const confirmDelete = () => {
+    if (deleteConfirm) {
+      setExpenses(expenses.filter(exp => exp.id !== deleteConfirm))
+      setDeleteConfirm(null)
+    }
+  }
+
+  const cancelDelete = () => {
+    setDeleteConfirm(null)
   }
 
   // Group expenses by week
@@ -357,9 +369,9 @@ const motivationalQuotes = [
                               <div className="font-semibold text-slate-800">Rp {expense.amount.toLocaleString('id-ID')}</div>
                               <button
                                 onClick={() => deleteExpense(expense.id)}
-                                className="text-xs text-red-500 hover:text-red-700 mt-1"
+                                className="text-xs text-red-500 hover:text-red-700 mt-1 flex items-center justify-end"
                               >
-                                Hapus
+                                <Trash2 className="w-3 h-3" />
                               </button>
                             </div>
                           </div>
@@ -373,6 +385,39 @@ const motivationalQuotes = [
           )}
         </div>
       </div>
+
+      {/* Delete Confirmation Modal */}
+      {deleteConfirm && (
+      <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+        <div className="bg-white rounded-2xl p-6 max-w-sm mx-4 shadow-xl">
+          <div className="text-center mb-6">
+            <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg className="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+              </svg>
+            </div>
+            <h3 className="text-lg font-semibold text-slate-800 mb-2">Hapus Pengeluaran</h3>
+            <p className="text-slate-600 text-sm">Apakah Anda yakin ingin menghapus pengeluaran ini? Tindakan ini tidak dapat dibatalkan.</p>
+          </div>
+          <div className="flex gap-3">
+            <button
+              onClick={cancelDelete}
+              className="flex-1 py-3 border border-slate-300 rounded-xl font-medium text-slate-700 hover:bg-slate-50 transition-colors flex items-center justify-center gap-2"
+            >
+              <X className="w-4 h-4" />
+              Batal
+            </button>
+            <button
+              onClick={confirmDelete}
+              className="flex-1 py-3 bg-red-600 text-white rounded-xl font-medium hover:bg-red-700 transition-colors flex items-center justify-center gap-2"
+            >
+              <Trash2 className="w-4 h-4" />
+              Hapus
+            </button>
+          </div>
+        </div>
+      </div>
+    )}
     </div>
   )
 }
