@@ -24,6 +24,7 @@ export default function Home() {
   const [showAddForm, setShowAddForm] = useState(false)
   const [randomQuote, setRandomQuote] = useState('')
   const [deleteConfirm, setDeleteConfirm] = useState<string | null>(null)
+  const [showDeleteButton, setShowDeleteButton] = useState<string | null>(null)
   const [newExpense, setNewExpense] = useState({
     category: 'Makan',
     amount: ''
@@ -77,6 +78,10 @@ export default function Home() {
 
   const cancelDelete = () => {
     setDeleteConfirm(null)
+  }
+
+  const toggleDeleteButton = (id: string) => {
+    setShowDeleteButton(showDeleteButton === id ? null : id)
   }
 
   // Group expenses by week
@@ -351,9 +356,16 @@ const motivationalQuotes = [
                         <div key={expense.id} className="p-4 hover:bg-slate-50 transition-colors">
                           <div className="flex items-start justify-between">
                             <div className="flex items-start gap-3">
-                              <div className={`w-10 h-10 ${category?.color || 'bg-gray-500'} rounded-xl flex items-center justify-center`}>
-                                <Icon className="w-5 h-5 text-white" />
-                              </div>
+                              <button
+                                onClick={() => toggleDeleteButton(expense.id)}
+                                className={`w-10 h-10 ${showDeleteButton === expense.id ? 'bg-red-500' : (category?.color || 'bg-gray-500')} rounded-xl flex items-center justify-center transition-all hover:scale-110`}
+                              >
+                                {showDeleteButton === expense.id ? (
+                                  <Trash2 className="w-5 h-5 text-white" />
+                                ) : (
+                                  <Icon className="w-5 h-5 text-white" />
+                                )}
+                              </button>
                               <div>
                                 <div className="font-medium text-slate-800">{expense.category}</div>
                                 <div className="text-xs text-slate-400 mt-1">
@@ -368,12 +380,14 @@ const motivationalQuotes = [
                             </div>
                             <div className="text-right">
                               <div className="font-semibold text-slate-800">Rp {expense.amount.toLocaleString('id-ID')}</div>
-                              <button
-                                onClick={() => deleteExpense(expense.id)}
-                                className="text-xs text-red-500 hover:text-red-700 mt-1 flex items-center justify-end"
-                              >
-                                <Trash2 className="w-3 h-3" />
-                              </button>
+                              {showDeleteButton === expense.id && (
+                                <button
+                                  onClick={() => deleteExpense(expense.id)}
+                                  className="text-xs text-red-500 hover:text-red-700 mt-1 flex items-center justify-end animate-fade-in"
+                                >
+                                  <Trash2 className="w-3 h-3" />
+                                </button>
+                              )}
                             </div>
                           </div>
                         </div>
